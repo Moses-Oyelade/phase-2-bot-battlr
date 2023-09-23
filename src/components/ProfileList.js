@@ -1,78 +1,52 @@
-import React, {useEffect, useState} from 'react'
-import Items from './Items';
+import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
+
 
 
 function ProfileList() {
-
-  const [items, setItems] = useState({});
-  // const [isLoaded, setIsLoaded] = useState(false);
-
-  const [index, setIndex] = useState(0);
-  console.log("in BotCollct..:", index)
-
-  let containPrev = index > 0;
-  let containNext = index < items.length - 1;
-
-  function handlePrevClick() {
-    if (containPrev) {
-        setIndex(index -1);
-    }
-  }
-
-
-  function handleNextClick(){
-
-    if (containNext) {
-        setIndex(index + 1);
-    }
-    if(index === items.length -1){
-        setIndex(0);
-    }
-  }
-
-    // let avatar = items[index];
+const [items, setItems] = useState([]);
 
 
 
- console.log("from List")
+console.log("here at Profile")
 
-  useEffect(() =>{
-    fetch("http://localhost:3000/bots")
+  useEffect(() => {
+    fetch("http://localhost:8001/bots")
     .then((r) => r.json())
-    .then((bots) => {
-      console.log(bots);
-      this.setItems(bots);
-    });
-  },[]);
+    .then((data) => {
+    setItems(data)
+  })
+  },[])
 
 
+  console.log(items)
+  const arrayDataItems = items.map((item) => 
+  <li key = {item.id}>
+  <p>
+  <img src={item.avatar_url} alt="text" />
+  </p>
+  <table className="item-table">
+      <tr><td>{item.name}</td></tr>
+      <tr><td>{item.health}</td></tr>
+      <tr><td>{item.damage}</td></tr>
+      <tr><td>{item.armor}</td></tr>
+      <tr><td>{item.bot_class}</td></tr>
+  </table>
+  <h4>{item.catchphrase}</h4>
+  <h4>{item.created_at}</h4>
+  <h4>{item.updated_at}</h4>
+  </li>
+  )
+
+            console.log(arrayDataItems)
 
 
-  
 
   return (
     <div>
       <h2>Bot ProfileList</h2>
-      <h3>({index + 1} of {items.length})</h3>
-      <div>
-        {items.map((item) =>(
-        <Items  key = {item.id}
-        item={item}
-
-        />
-        ))}
-        <button onClick={handlePrevClick} disabled={!containPrev}>
-          Prev
-        </button>
-        <button onClick={handleNextClick}>Next</button>
-      </div>
-
-
-
-
-
-
-
+      <h3>
+       <Link to={`myarmybot/${items.id}`}>{arrayDataItems}</Link></h3>
     </div>
   )
 }

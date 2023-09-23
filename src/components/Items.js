@@ -1,33 +1,29 @@
-import React from 'react'
+// import React from 'react'
 
-function Items({items}) {
+// function Items({count, item}) {
 
-    const { name, health, 
-        damage, armor, bot_class, 
-        avatar_url, catchphrase, created_at, updated_at} = items
+//     // const { name, health, 
+//     //     damage, armor, bot_class, 
+//     //     avatar_url, catchphrase, created_at, updated_at} = item
 
-  return (
-    <div className="items">
-        <div>
-        <p>
-        <img src={avatar_url} alt={name} />
-        </p>
-        <table className="item-table">
-            <tr><td>{name}</td></tr>
-            <tr><td>{health}</td></tr>
-            <tr><td>{damage}</td></tr>
-            <tr><td>{armor}</td></tr>
-            <tr><td>{bot_class}</td></tr>
-        </table>
-        </div>
-        <h4>{catchphrase}</h4>
-        <h4>{created_at}</h4>
-        <h4>{updated_at}</h4>
+//   return (
+//     <div className="items">
+//         <p>
+//   <img src={item.avatar_url} alt="text" />
+//   </p>
+//   <table className="item-table">
+//       <tr><td>{item.name}</td></tr>
+//       <tr><td>{item.health}</td></tr>
+//       <tr><td>{item.damage}</td></tr>
+//       <tr><td>{item.armor}</td></tr>
+//       <tr><td>{item.bot_class}</td></tr>
+//   </table>
+//   <h4>{item.catchphrase}</h4>
+//   <h4>{item.created_at}</h4>
+//   <h4>{item.updated_at}</h4>
 
-        
+//     </div>
+//   )
+// }
 
-    </div>
-  )
-}
-
-export default Items 
+// export default Items 
