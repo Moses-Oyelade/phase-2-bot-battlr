@@ -16,7 +16,7 @@ function Navbar() {
                     <NavLink to="/botcollection">BotCollection</NavLink>
                 </li>
                 <li>
-                    <NavLink to="myarmybot">MyArmyBot</NavLink>
+                    <NavLink to="myarmybot">ArmyBot</NavLink>
                 </li>
             </ul>
         </nav>

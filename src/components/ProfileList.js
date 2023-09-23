@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 
 
+
 function ProfileList() {
 const [items, setItems] = useState([]);
 
@@ -23,7 +24,7 @@ console.log("here at Profile")
   const arrayDataItems = items.map((item) => 
   <li key = {item.id}>
   <p>
-  <img src={item.avatar_url} alt="text" />
+    <img src={item.avatar_url} alt="text" />
   </p>
   <table className="item-table">
       <tr><td>{item.name}</td></tr>
@@ -35,6 +36,7 @@ console.log("here at Profile")
   <h4>{item.catchphrase}</h4>
   <h4>{item.created_at}</h4>
   <h4>{item.updated_at}</h4>
+  <Link to={`myarmybot/${item.id}`}>Add to My Army Bot</Link>
   </li>
   )
 
@@ -45,8 +47,7 @@ console.log("here at Profile")
   return (
     <div>
       <h2>Bot ProfileList</h2>
-      <h3>
-       <Link to={`myarmybot/${items.id}`}>{arrayDataItems}</Link></h3>
+      <h3>{arrayDataItems}</h3>
     </div>
   )
 }
