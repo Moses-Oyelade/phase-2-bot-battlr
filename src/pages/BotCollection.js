@@ -9,8 +9,10 @@ function BotCollection() {
 
   return (
     <>
-    <div>BotCollection</div>
+    <div className= "bot">
+      <h2>BotCollection</h2>
     <ProfileList/>
+    </div>
     </>
   )
 }

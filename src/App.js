@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+      <div className="App">
       <BrowserRouter>
           <Navbar/>
           <Routes>
@@ -22,6 +23,7 @@ function App() {
             <Route path="myarmybot/:id" element={<MyArmyBot/>}/>
           </Routes>
       </BrowserRouter>
+      </div>
     </>
    
   );
