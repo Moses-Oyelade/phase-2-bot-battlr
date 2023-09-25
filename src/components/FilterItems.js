@@ -12,7 +12,7 @@
         
 //         useEffect(() => {
 //           console.log('me here')
-//         fetch("http://localhost:3000/bots")
+//         fetch("http://localhost:8001/bots")
 //         .then((r) => r.json())
 //         .then((bots) => { 
 //               setItems(bots.filter((item) => {

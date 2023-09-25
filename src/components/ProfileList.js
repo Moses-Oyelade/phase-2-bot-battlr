@@ -24,28 +24,39 @@ console.log("here at Profile")
   const arrayDataItems = items.map((item) => {
     const { id, avatar_url, name, health, damage, 
         armor, bot_class, catchphrase, 
-        created_at, updated_at} = item
+        created_at, updated_at} = item;
 
     return(
+
+      <div className="card">
       <ul>
   <li key = {id}>
-  <p className="robot">
+  <div className="robot">
+  <Link to={`myarmybot/${id}`}>
     <img src={avatar_url} alt="text" />
- 
+    </Link>{" "}
   <table className="item-table">
-      <tr><td>{name}</td></tr>
-      <tr><td>{health}</td></tr>
-      <tr><td>{damage}</td></tr>
-      <tr><td>{armor}</td></tr>
-      <tr><td>{bot_class}</td></tr>
+    <tbody>
+      <tr><td>Name:</td><td>{name}</td></tr>
+      <tr><td>Health:</td><td>{health}</td></tr>
+      <tr><td>Damage:</td><td>{damage}</td></tr>
+      <tr><td>Armour:</td><td>{armor}</td></tr>
+      <tr><td>Class:</td><td>{bot_class}</td></tr>
+    </tbody>
   </table>
-  </p>
-  <h4>{catchphrase}</h4>
-  <h4>{created_at}</h4>
-  <h4>{updated_at}</h4>
-  <Link to={`myarmybot/${id}`}><button>Add to My Army Bot</button></Link>{" "}
+  </div>
+  <div className="robot-2" >
+  <table>
+    <tbody>
+      <tr><td>Catch:</td><td>{catchphrase}</td></tr>
+      <tr><td>Creat:</td><td>{created_at}</td></tr>
+      <tr><td>Updated:</td><td>{updated_at}</td></tr>
+    </tbody>
+  </table>
+  </div>
   </li>
   </ul>
+  </div>
     );
 })
 

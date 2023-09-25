@@ -3,20 +3,31 @@ import { useParams } from "react-router-dom";
 
 function MyArmyBot() {
   const [items, setItems] = useState("")
-  let { id } = useParams();
+  let { id } = useParams('');
   console.log(id);
+ 
+ 
+
 
   useEffect(() => {
+    
+
+    console.log('this is before')
     fetch(`http://localhost:8001/bots/${id}`)
     .then((r) => r.json())
     .then((data) => {
+      console.log(data.bots)
     setItems(data.bots)
   })
   },[id])
+  console.log("this after")
+  
 
-  const bot = items.find((data) => String(data.id) === id);
-  console.log(bot);
+  // if(bot.id !== setItems ){}
 
+  
+  console.log(items)
+  
 
 
 
@@ -25,18 +36,18 @@ function MyArmyBot() {
     <div><h2>MyBotArmy</h2>
   <li className="display" key = {id}>
   <p>
-  <img src={bot.avatar_url} alt="text" />
+  <img src={items.avatar_url} alt="text" />
   </p>
   <table className="item-table">
-      <tr><td>{bot.name}</td></tr>
-      <tr><td>{bot.health}</td></tr>
-      <tr><td>{bot.damage}</td></tr>
-      <tr><td>{bot.armor}</td></tr>
-      <tr><td>{bot.bot_class}</td></tr>
+      <tr><td>{items.name}</td></tr>
+      <tr><td>{items.health}</td></tr>
+      <tr><td>{items.damage}</td></tr>
+      <tr><td>{items.armor}</td></tr>
+      <tr><td>{items.bot_class}</td></tr>
   </table>
-  <h4>{bot.catchphrase}</h4>
-  <h4>{bot.created_at}</h4>
-  <h4>{bot.updated_at}</h4>
+  <h4>{items.catchphrase}</h4>
+  <h4>{items.created_at}</h4>
+  <h4>{items.updated_at}</h4>
   </li>
 
     </div>

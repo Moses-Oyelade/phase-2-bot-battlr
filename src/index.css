@@ -31,8 +31,29 @@ code {
 .robot{
   display: flex;
   flex-direction: row-reverse  ;
+  margin-right: 6em;
+}
+
+.robot-2{
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  padding-left: 3rem;
+}
+
+li{
+  list-style: none;
 }
 
 img{
   padding-bottom: 0.5em;
+}
+
+.card{
+  margin: 2rem auto;
+  padding-bottom: 1rem;
+  max-width: 600px;
+  background-color: rgba(243, 245, 244, 0.842);
+  box-shadow: 4px 4px 10px rgba(33, 33, 33, 0.404);
+  border-radius: 10px;
 }
