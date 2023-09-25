@@ -13,11 +13,21 @@ function MyArmyBot() {
     
 
     console.log('this is before')
-    fetch(`http://localhost:8001/bots/${id}`)
+    fetch(`http://localhost:8001/bots/${id}`, 
+    // {
+    //  method: "PATCH",
+    //  headers: {
+    //   "Content-Type": "application/json",
+    //  },
+    //  body: JSON.stringify({
+      
+    //  })
+    // }
+    )
     .then((r) => r.json())
     .then((data) => {
-      console.log(data.bots)
-    setItems(data.bots)
+      console.log(data)
+    setItems(data)
   })
   },[id])
   console.log("this after")
